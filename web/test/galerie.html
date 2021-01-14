@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8" />
+    <link rel="stylesheet" type="text/css" href="example1.css" />
+    <script type="text/javascript" src="jquery.gallerax-0.2.js"></script>
+    <title> Galerie photos </title>
+
+</head>
+
+<body>
+    <p>
+        <div style="padding:10pt; border:thin solid black; width:100%;">
+            <div id="gallery">
+                <img class="output" src="images/photo-couleurs.jpg" alt="" />
+                <span class="caption">Cascades du Saut du Loup, Photo couleur</span>
+                <ul class="thumbnails">
+                    <li><img class="active" src="img/img7.jpg" title="Photo couleur et fond d'eacute;cran" alt="Photo couleur et fond d'eacute;cran" width="100" height="67" /></li>
+                    <li><img src="img/img1.jpg" title="Photo négatif couleur" alt="Photo négatif couleur" width="100" height="67" /></li>
+                    <li><img src="img/img2.jpg" title="Photo noir et blanc" alt="Photo noir et blanc" width="100" height="67" /></li>
+                    <li><img src="img/img3.jpg" title="Photo négatif noir et blanc" alt="Photo négatif noir et blanc" width="100" height="67" /></li>
+                    <li><img src="img/img4.jpg" title="Photo effet polaroid" alt="Photo effet polaroid" width="100" height="67" /></li>
+                    <li><img src="img/img5.jpg" title="Photo effet sépia" alt="Photo effet sépia" width="100" height="67" /></li>
+                    <li><img src="img/img6.jpg" title="Photo caméra infrarouge" alt="Photo caméra infrarouge" width="100" height="67" /></li>
+                    <li><img src="img/img7.jpg" title="Photo Pop Art" alt="Photo Pop Art" width="100" height="67" /></li>
+                </ul>
+                <br class="clear" />
+            </div>
+
+            <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+
+            <script type="text/javascript">
+                $('#gallery').gallerax({
+                    outputSelector: '.output', // Output selector
+                    thumbnailsSelector: '.thumbnails li img', // Thumbnails selector
+                    captionSelector: '.caption' // Caption selector
+                });
+            </script>
+
+    </p>
+    </div>
+    <p>
+</body>
+
+</html>

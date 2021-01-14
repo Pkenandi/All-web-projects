@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <meta charset="utf-8" />
+    <title> Interface Utilisateur : Jquery UI </title>
+    <link rel="stylesheet" href="http://ajax.googleapis.com/ajax/libs/jqueryui/1.10.3/themes/smoothness/jquery-ui.min.css" />
+</head>
+
+<body>
+    <p>
+        <input type="text" id="myDatepicker" placeholder="Click to pick date" />
+        <button name="bouton" type="submit" id="submit"> Send </button>
+    </p>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script src="//ajax.googleapis.com/ajax/libs/jqueryui/1.10.3/jquery-ui.min.js"></script>
+
+    <script>
+        $('#myDatepicker').datepicker();
+        $('#myDatepicker').resizable();
+
+        $('#submit').Button();
+    </script>
+
+</body>
+
+</html>

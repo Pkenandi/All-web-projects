@@ -1,0 +1,37 @@
+#titre {
+    text-align: justify;
+    border: 3px gray outset;
+    box-shadow: 6px 6px 0px wheat;
+}
+
+em {
+    color: rosybrown;
+    font-weight: bold;
+    font-family: 'Courier New', Courier, monospace;
+    font-size: medium;
+    font-style: italic;
+    text-decoration: underline;
+}
+
+body {
+    background: url("image1.png") fixed no-repeat center;
+    color: blanchedalmond;
+}
+
+.float {
+    float: top;
+}
+
+a:hover {
+    text-decoration: underline;
+    color: yellowgreen;
+    font-style: italic;
+}
+
+a:active {
+    color: wheat;
+}
+
+a:focus {
+    background-color: yellowgreen;
+}

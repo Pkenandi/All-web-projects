@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Editions element HTML </title>
+    <meta charset="utf-8" />
+</head>
+
+<body>
+
+    <p> <a id="unLien" href="whatsapp.com"> lien </a> </p>
+
+    <script>
+        var lien = document.getElementById(unLien),
+            link = lien.getAttribute('href');
+
+        alert(link);
+
+        lien.setAttribute('href', 'facebook.com');
+
+        //ou autrement 
+
+        link = lien.href;
+
+        alert(link);
+
+        lien.href = 'google.com';
+    </script>
+
+    <div id="link">
+        <p> Laisser votre facebook pour plus d'info <a href="facebook.com" target="_blank" title="@facebook"> voici le mien </a></p>
+    </div>
+    <script>
+        var monLien = document.getElementById('link');
+        alert(monLien.textContent);
+
+        // pour utiliser a la fois innertext (IE) et textcontent(others Navigators)
+
+        var test = document.getElementById(link),
+            txt = '';
+
+        if (test.textContent)
+            txt = test.textContent;
+        else
+        if (test.innerText)
+            txt = test.innerText;
+        else
+            txt = '';
+
+        alert(txt)
+    </script>
+
+</body>
+
+</html>

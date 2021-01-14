@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Formulaire d'upload de fichiers</title>
+</head>
+
+<body>
+    <div id="content">
+        <form action="upload.php" method="post" enctype="multipart/form-data">
+            <label for="filename"> Nom du fichier : </label>
+            <input type="text" name="imageName" /> <br>
+            <input type="file" name="image" />
+            <button type="submit" name="submit" style="color: aqua; background-color: black;"> Upload </button>
+        </form>
+    </div>
+</body>
+
+</html>

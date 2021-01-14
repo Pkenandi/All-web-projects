@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8" />
+    <title> Connection au Jquery </title>
+</head>
+
+<body>
+    <p>
+        <h1> Formulaire d'identité </h1>
+    </p>
+    <form action="#" method="POST" name="form">
+        <label for="nom"> Nom :   </label> <input type="text" name="nom" id="nom"><br><br>
+        <label for="prenom"> Prenom : </label> <input type="text" name="prenom" id="prenom"><br><br>
+        <label for="age"> Age :   </label> <input type="number" name="age" id="age"><br><br>
+        <button type="submit" name="Send" id="send"> Envoyer </button>
+    </form>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script>
+        $('h1').css({
+            color: 'blue',
+            width: '300px'
+        });
+        $('p').animate({
+            width: '150px',
+            fontSize: '35px',
+            marginTop: '50px'
+        });
+
+        $('button').css({
+            color: 'blue',
+            align: 'center',
+            width: '100px',
+            marginLeft: "50px"
+        });
+
+        $('input').on('click', function() {
+            $('input').css({
+                color: "green",
+                width: "150px"
+            });
+        })
+        $('input').on('blur', function() {
+            $('input').css({
+                color: "Blue",
+                width: "50px",
+                borderRadius: "40px",
+                transition: "width 2s"
+            });
+        })
+
+        $('button').css({
+            borderRadius: "40px",
+            borderColor: "black"
+        })
+        $('form').css({
+            border: "solid black 2px",
+            borderRadius: "10px",
+            width: "250px",
+            height: "150px"
+        })
+    </script>
+</body>
+
+</html>

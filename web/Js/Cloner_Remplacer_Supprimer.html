@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8" />
+    <title> clonage remplacement et suppression </title>
+</head>
+
+<body>
+    <div>
+        <p id="myP">Un peu de texte <a>et un lien</a></p>
+    </div>
+
+    <script>
+        // Clonngage;
+
+        // On va cloner un élément créé :
+        var hr1 = document.createElement('hr');
+        var hr2 = hr1.cloneNode(false); // Il n'a pas d'enfants…
+
+        // Ici, on clone un élément existant :
+        var paragraph1 = document.getElementById('myP');
+        var paragraph2 = paragraph1.cloneNode(true);
+
+        // Et attention, l'élément est cloné, mais pas « inséré » tant que l'on n'a pas appelé appendChild() :
+        paragraph1.parentNode.appendChild(paragraph2);
+
+        // Remplacement ;
+
+        var link = document.querySelector('a');
+        var newLabel = document.createTextNode('et un hyperlien');
+
+        link.replaceChild(newLabel, link.firstChild);
+
+        // Suppression;
+
+        link.parentNode.removeChild(link); // on peut aussi utiliser getElementById() a la place de parentnode;
+
+        // verification d'un noeud ;
+
+        var paragraph = document.querySelector('p');
+
+        alert(paragraph.hasChildNodes()); // Affiche true
+
+        // Insertion avant ou apres un elemnt quelconque; 
+        // "Avant"
+        // insertBefore :  prend en paramtre 1) l'élément à insérer 2) l'élément avant lequel l'élément va être inséré
+
+        var emphasis = document.createElement('em'),
+            emphasisText = document.createTextNode(' en emphase légère ');
+
+        emphasis.appendChild(emphasisText);
+
+        paragraph.insertBefore(emphasis, paragraph.lastChild);
+
+        // "Apres"
+
+        function insertAfter(newElement, afterElement) {
+            var parent = afterElement.parentNode;
+
+            if (parent.lastChild === afterElement) { // Si le dernier élément est le même que l'élément après lequel on veut insérer, il suffit de faire appendChild()
+                parent.appendChild(newElement);
+            } else { // Dans le cas contraire, on fait un insertBefore() sur l'élément suivant
+                parent.insertBefore(newElement, afterElement.nextSibling);
+            }
+        }
+    </script>
+</body>
+
+</html>

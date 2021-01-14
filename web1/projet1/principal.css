@@ -1,0 +1,64 @@
+@font-face {
+    font-family: 'BallparkWeiner';
+    src: url('polices/ballpark.eot');
+    src: url('polices/ballpark.eot?#iefix') format('embedded-opentype'), url('polices/ballpark.woff') format('woff'), url('polices/ballpark.ttf') format('truetype'), url('polices/ballpark.svg#BallparkWeiner') format('svg');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Dayrom';
+    src: url('polices/dayrom.eot');
+    src: url('polices/dayrom.eot?#iefix') format('embedded-opentype'), url('polices/dayrom.woff') format('woff'), url('polices/dayrom.ttf') format('truetype'), url('polices/dayrom.svg#Dayrom') format('svg');
+    font-weight: normal;
+    font-style: normal;
+}
+
+body {
+    background: url('Images/fond_jaune.png');
+    font-family: 'Trebuchet MS', Arial, sans-serif;
+    color: #181818;
+}
+
+#pagePrincipale {
+    width: 900px;
+    margin: initial;
+}
+
+#Tri ul {
+    list-style-type: none;
+    display: flex;
+}
+
+li {
+    margin-right: 15px;
+    position: relative;
+}
+
+pc,
+pr,
+mc {
+    border: black solid;
+}
+
+header {
+    background: url('Images/separateur.png') repeat-x bottom;
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+}
+
+#art ul {
+    list-style-type: none;
+    display: flex;
+}
+
+li {
+    margin-right: 15px;
+}
+
+footer {
+    display: flex;
+    background: url('Images/ico_top.png') no-repeat top center, url('Images/separateur.png') repeat-x top, url('Images/ombre.png') repeat-x top;
+    padding-top: 25px;
+}

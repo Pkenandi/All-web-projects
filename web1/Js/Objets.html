@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <title> Les Objets </title>
+</head>
+
+<body>
+    <script>
+        /*function Personnage(nom, prenom, age) {
+                    this.nom = nom;
+                    this.prenom = prenom;
+                    this.age = 25;
+
+                    //ajout d'une methode via le constructeur ();
+                    this.addFreinds = function(nom, prenom, age) {
+                        this.age.push(new Personnage(nom, prenom, age));
+                    }
+                }
+
+                var id = new Personnage('Prince', 'Kenandi', 21);
+
+                alert("Je m'appelle " + id.nom + " " + id.prenom + " et je suis agé de " + id.age + " ans ");
+                id.addFreinds('Cecile', 'Kenandi', 19);
+                alert("Je m'appelle " + id[1].nom + " " + id[1].prenom + " et je suis agé de " + id[1].age + " ans ");
+
+                //ajout d'une methode via le prototype ();
+                Personnage.prototype.addFreinds = function(nom, prenom, age) {
+                    this.friends.push(new Person(nick, age, sex, parent, work, friends));
+                }*/
+
+        //---Modification d'objet natifs ---
+
+        // Testons si cette méthode n'existe pas déjà !
+        if (!Object.prototype.debug) {
+
+            // Créons la méthode
+            Object.prototype.debug = function() {
+                var text = 'Object {\n';
+
+                for (var i in this) {
+                    if (i !== 'debug') {
+                        text += '    [' + i + '] => ' + this[i] + '\n';
+                    }
+                }
+
+                alert(text + '}');
+            }
+
+        }
+    </script>
+
+</body>
+
+</html>

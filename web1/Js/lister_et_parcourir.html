@@ -1,0 +1,65 @@
+<!doctype html>
+<html>
+
+<head>
+    <meta charset="utf-8" />
+    <title>Le titre de la page</title>
+</head>
+
+<body>
+    <div>
+        <p id="myP">Un peu de texte, <a>un lien</a> et <strong>une portion en emphase</strong></p>
+    </div>
+
+    <script>
+        var paragraph = document.getElementById('myP');
+        var first = paragraph.firstChild;
+        var last = paragraph.lastChild;
+
+        alert(first.nodeName.toLowerCase());
+        alert(last.nodeName.toLowerCase());
+
+        // recuperer le contenu il faut utliser nodevalue ou data;
+
+        alert(first.nodeValue);
+        alert(last.firstChild.data);
+
+        // utilisation de childNodes qui renvoie un tableau des enfants noeuds
+
+        var paragraph = document.getElementById('myP');
+        var children = paragraph.childNodes;
+
+        for (var i = 0, c = children.length; i < c; i++) {
+
+            if (children[i].nodeType === Node.ELEMENT_NODE) { // C'est un élément HTML
+                alert(children[i].firstChild.data);
+            } else { // C'est certainement un nœud textuel
+                alert(children[i].data);
+            }
+
+        }
+
+        // nextSibling et previousSibling 
+
+        var first = paragraph.firstChild;
+        var next = first.nextSibling;
+
+        alert(next.firstChild.data); // Affiche « un lien »
+
+        // On peut effectué mm un parcours a l'aide de la boucle while;
+
+        while (child) {
+
+            if (child.nodeType === Node.ELEMENT_NODE) { // C'est un élément HTML
+                alert(child.firstChild.data);
+            } else { // C'est certainement un nœud textuel
+                alert(child.data);
+            }
+
+            child = child.previousSibling; // À chaque tour de boucle, on prend l'enfant précédent
+
+        }
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <title> Annulation d'une action temporelle </title>
+</head>
+
+<body>
+    <img id="myImg" src="../projet1/Images/veste.jpg" style="opacity: 1" />
+
+    <script>
+        var myImg = document.getElementById('myImg');
+
+        function anim() {
+
+            var s = myImg.style,
+                result = s.opacity = parseFloat(s.opacity) - 0.1;
+
+            if (result > 0.1) {
+                setTimeout(anim, 500); // La fonction anim() fait appel à elle-même si elle n'a pas terminé son travail
+
+            }
+
+        }
+
+        anim(); // Et on lance la première phase de l'animation
+    </script>
+</body>
+
+</html>

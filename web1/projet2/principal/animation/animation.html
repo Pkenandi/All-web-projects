@@ -1,0 +1,26 @@
+<script>
+    var i = 0;
+    var image = [];
+    var time = 3000;
+
+    image[0] = 'header.jpg';
+    image[1] = 'header1.jpg';
+    image[2] = 'header2.jpg';
+    image[3] = 'header3.jpg';
+    image[4] = 'header4.jpg';
+
+    function animation() {
+        document.slide.src = image[i];
+
+        if (i < image.length - 1)
+            i++;
+        else
+            i = 0;
+
+        setTimeout("animation()", time);
+    }
+
+    window.onload = animation;
+</script>
+
+<img name="slide" width="1000" height="1000" id="slide">

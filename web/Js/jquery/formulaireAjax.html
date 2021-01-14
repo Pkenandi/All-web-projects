@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8" />
+    <title>Un formulaire de connexion en AJAX</title>
+</head>
+
+<body>
+    <div id="resultat">
+
+    </div>
+
+    <h1>Un formulaire de connexion en AJAX</h1>
+
+    <form method="POST" action="connexion.php">
+        <p>
+            Nom d'utilisateur : <input type="text" id="username" /> Mot de passe : <input type="password" id="password" />
+            <input type="submit" id="submit" value="Se connecter !" />
+        </p>
+    </form>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script>
+        $(document).ready(function() {
+
+            $("#submit").click(function() {
+
+                $.post(
+                    'connexion.php', {
+                        username: $("#username").val(),
+                        password: $("#password").val()
+                    },
+
+                    function(data) {
+                        if (data == 'Success') {
+                            $('#resultat').html("<p> <h2> Connection reussi </h2> </p> ");
+                        } else {
+                            $('#resultat').html("<p> <h2> Echec de connection </h2> </p> ");
+                        }
+                    },
+
+                    'text' // Nous souhaitons recevoir "Success" ou "Failed", donc on indique text !
+                );
+
+            });
+
+        });
+    </script>
+</body>
+
+</html>

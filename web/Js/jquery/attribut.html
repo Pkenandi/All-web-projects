@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8" />
+    <title> Gestion des attributs et parcours du DOM </title>
+
+</head>
+
+<body>
+    <p>
+        <img src="img/img1.jpg" alt=" lion" title="Lion sombre ">
+    </p>
+
+    <p>
+        Liens vers une image dans la base des données <br>
+        <a href="#"> cliqué ici </a>
+        <div id="gen">
+            Vous y trouverai les infos necessaires! <br>
+
+        </div>
+    </p>
+    <p>
+        love don't cost things
+    </p>
+    <p>
+        Soyez toujours joyeux
+    </p>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script>
+        $('img').attr({
+            src: 'img/img2.jpg',
+            alt: ' Second lion ',
+            title: ' Toujours sombre',
+            width: '500px',
+            higth: '500px'
+        });
+
+        //modification de l'element parent 
+
+        $('a').parent().css('color', 'gray');
+        $('p').children().css('color', 'yellow');
+        //$('body').find('p').css('color', 'red');
+        $('a').prev().css('color', 'blue');
+    </script>
+</body>
+
+</html>

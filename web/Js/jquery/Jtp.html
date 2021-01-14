@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title> TP: formulaire </title>
+    <meta charset="utf-8" />
+</head>
+
+<body>
+    <div id="erreur">
+        <p>Vous n'avez pas rempli correctement les champs du formulaire !</p>
+    </div>
+
+    <form>
+        <label for="pseudo">Pseudonyme</label> <input type="text" id="pseudo" class="champ" /><br /><br />
+        <label for="mdp">Mot de passe</label> <input type="password" id="mdp" class="champ" /><br /><br />
+        <label for="confirmation">Confirmation</label> <input type="password" id="confirmation" class="champ" /><br /><br />
+        <label for="mail">E-mail</label> <input type="text" id="mail" class="champ" /><br /><br />
+        <input type="submit" id="envoi" value="Envoyer" /> <input type="reset" id="rafraichir" value="Rafraîchir" />
+    </form>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+
+    <script>
+        $(document).ready(function() {
+            //initialisation des variables
+            var $psdo = $('#pseudo'),
+                $pssword = $('#mdp'),
+                $confirmation = $('#confirmation'),
+                $mail = $('#mail'),
+                //$regex = new $("^([a-zA-Z0-9_\-\.]+)@([a-zA-Z0-9_\-\.]+)\.([a-zA-Z]{2,5})$"),
+                $envoi = $('#envoi'),
+                $reset = $('#rafraichir'),
+                $champ = $('.champ'),
+                $erreur = $('#erreur');
+
+            //Verifications des caracteres 
+            $champ.keyup(function() {
+                if ($(this).val().length < 5) {
+                    $(this).css({
+                        borderColor: 'red',
+                        color: 'red',
+                        borderRadius: ''
+                    });
+                } else {
+                    $(this).css({
+                        borderColor: 'green',
+                        color: 'green',
+                        borderRadius: '20px',
+
+                    })
+                }
+            })
+
+            //Verification de confirmation
+            $confirmation.keyup(function() {
+                if ($(this).val() != $pssword.val()) {
+                    $(this).css({
+                        color: 'red',
+                        borderColor: 'red'
+                    });
+                } else {
+                    $(this).css({
+                        color: 'green',
+                        borderColor: 'green'
+                    });
+                }
+            })
+
+            // verification des champs vide
+            function verifier(champ) {
+                if (champ.val() == "") {
+                    //$erreur.css('display', 'block');
+                    alert(" Veillez remplir tout les champs svp ");
+                    $champ.css({
+                        borderColor: 'red',
+                        color: 'red'
+                    })
+                }
+            }
+            //Verication Email
+            function verifEmail(mail) {
+                if (/^[a-z0-9._-]+@[a-z0-9._-]+\.[a-z]{2,6}$/.test(mail.val())) {
+                    alert(" Email incorrect ! ");
+                } else {
+                    mail.css({
+                        color: 'green',
+                        borderColor: 'green'
+                    });
+                }
+            }
+
+            //Verification a l'envoi
+
+            $envoi.click(function(e) {
+                e.preventDefault();
+
+                verifier($psdo);
+                verifier($pssword);
+                verifier($confirmation);
+                verifier($mail);
+                verifEmail($mail);
+            })
+
+            $reset.click(function() {
+                $champ.css({
+                    color: 'black',
+                    borderColor: 'black'
+                });
+                $erreur.css('display', 'none');
+            })
+        });
+    </script>
+</body>
+
+</html>

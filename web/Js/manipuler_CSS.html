@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8" />
+    <title> Manipulation du css en js </title>
+</head>
+
+<body>
+    <!--Modification du Css avec style -->
+    <div id="myDiv" style="background-color: orange">Je possède un fond orange.</div>
+
+    <script>
+        var myDiv = document.getElementById('myDiv');
+
+        alert('Selon le JavaScript, la couleur de fond de ce DIV est : ' + myDiv.style.backgroundColor); // On affiche la couleur de fond
+    </script>
+
+    <!--Récupérer les propriétés CSS-->
+    <!--La fonction getComputedStyle()-->
+    <style>
+        #text {
+            color: red;
+        }
+    </style>
+
+    <span id="text"></span>
+
+    <script>
+        var text = document.getElementById('text'),
+            color = getComputedStyle(text).color;
+
+        alert(color);
+    </script>
+
+    <!--La propriété offsetParent-->
+    <style>
+        #parent,
+        #child {
+            position: absolute;
+            top: 50px;
+            left: 100px;
+        }
+        
+        #parent {
+            width: 200px;
+            height: 200px;
+            background-color: blue;
+        }
+        
+        #child {
+            width: 50px;
+            height: 50px;
+            background-color: red;
+        }
+    </style>
+
+    <div id="parent">
+        <div id="child"></div>
+    </div>
+
+    <script>
+        var parent = document.getElementById('parent');
+        var child = document.getElementById('child');
+
+        alert("Sans la fonction de calcul, la position de l'élément enfant est : \n\n" +
+            'offsetTop : ' + child.offsetTop + 'px\n' +
+            'offsetLeft : ' + child.offsetLeft + 'px');
+
+
+        function getOffset(element) { // Notre fonction qui calcule le positionnement complet
+            var top = 0,
+                left = 0;
+
+            do {
+                top += element.offsetTop;
+                left += element.offsetLeft;
+            } while (element = element.offsetParent); // Tant que « element » reçoit un « offsetParent » valide alors on additionne les valeurs des offsets
+
+            return { // On retourne un objet, cela nous permet de retourner les deux valeurs calculées
+                top: top,
+                left: left
+            };
+        }
+
+
+        alert("Avec la fonction de calcul, la position de l'élément enfant est : \n\n" +
+            'offsetTop : ' + getOffset(child).top + 'px\n' +
+            'offsetLeft : ' + getOffset(child).left + 'px');
+    </script>
+</body>
+
+</html>

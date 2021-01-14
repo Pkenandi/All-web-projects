@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <title> Canvas </title>
+</head>
+
+<body>
+    <!--Premiere manipulations -->
+    <canvas id="canvas" width="150" height="150">
+        <p>Désolé, votre navigateur ne supporte pas Canvas. Mettez-vous à jour</p>
+    </canvas>
+
+    <script>
+        var canvas = document.querySelector('#canvas');
+        var context = canvas.getContext('2d');
+
+        // dessin d'un rectangle + carré : 
+        context.fillStyle = "gold";
+        context.fillRect(50, 35, 50, 80);
+
+        context.fillStyle = "rgba(23, 145, 167, 0.5)";
+        context.fillRect(40, 25, 40, 40);
+
+        // Le fond et les contours
+        context.strokeStyle = "black";
+        context.strokeRect(50, 35, 50, 80);
+
+        context.fillStyle = "rgba(23, 145, 167, 0.5)";
+        context.fillRect(40, 25, 40, 40);
+
+        //choix de l'epaisseur
+        context.lineWidth = "3";
+        context.strokeStyle = "black";
+        context.strokeRect(50, 35, 50, 80);
+
+        context.fillStyle = "rgba(23, 145, 167, 0.5)";
+        context.fillRect(40, 25, 40, 40);
+
+        // Effacer
+        context.clearRect(45, 40, 30, 10);
+    </script>
+
+    <script>
+        // -- Formes geometrique
+        // les chemins simple :
+
+        context.strokeStyle = "rgb(23, 145, 167)";
+        context.beginPath();
+        context.moveTo(20, 20); // 1er point
+        context.lineTo(130, 20); // 2e point
+        context.lineTo(130, 50); // 3e
+        context.lineTo(75, 130); // 4e
+        context.lineTo(20, 50); // 5e
+        context.closePath(); // On relie le 5e au 1er
+        context.stroke();
+
+        // Les arcs
+
+        // un qmilé dessiné avec js : 
+        context.beginPath(); // Le cercle extérieur
+        context.arc(75, 75, 50, 0, Math.PI * 2); // Ici le calcul est simplifié
+        context.stroke();
+
+        context.beginPath(); // La bouche, un arc de cercle
+        context.arc(75, 75, 40, 0, Math.PI); // Ici aussi
+        context.fill();
+
+        context.beginPath(); // L'œil gauche
+        context.arc(55, 70, 20, (Math.PI / 180) * 220, (Math.PI / 180) * 320);
+        context.stroke();
+
+        context.beginPath(); // L'œil droit
+        context.arc(95, 70, 20, (Math.PI / 180) * 220, (Math.PI / 180) * 320);
+        context.stroke();
+    </script>
+</body>
+
+</html>

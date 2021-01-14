@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <title> Creation d'un compte</title>
+    <meta name="viewport" content="width = device-width, initial-scale = 1">
+    <link rel="stylesheet" href="../css/compte.css" media="screen">
+
+</head>
+
+<body>
+    <div id="bloc_page">
+        <div id="bloc">
+            <p>
+                <a href="../html/principal.html"><img src="../images/graciasCompte.jpg" alt="LogoCompte" title="Acceuil"></a>
+            </p>
+
+            <div class="form">
+                <form method="POST" action="../php/compte.php" onsubmit=" return verifForm(this)">
+
+                    <h3> Création d'un compte </h3>
+                    <label for="nom"> Nom  </label> <br><input type="text" name="nom" id="nom" placeholder="Au moins 2 caracteres " required class="champ"><br/> <br/>
+                    <label for="prenom"> Prénom   </label> <br><input type="text" name="prenom" id="prenom" placeholder="Au moins 2 caracteres " required class="champ"><br/> <br/>
+                    <label for="Email"> E-mail   </label> <br> <input type="email" name="Email" id="Email" required><br/> <br/>
+                    <label for="password"> Mot de passe   </label> <br><input type="password" name="password" required id="password" placeholder="au moins 6 caracteres" class="champ"><br/> <br/>
+                    <label for="Cpassword"> Confirmer le mot de passe   </label> <br> <input type="password" name="Cpassword" required id="Cpassword" class="champ"><br/> <br/>
+
+                    <input type="submit" value="Créer" name="submit" id="Submit" />
+
+                </form>
+                <p> <strong>-----</strong> Vous possédez déjà un compte ? <a href="../html/connection.html"> Identifiez-vous </a> <strong>-----</strong> </p>
+            </div>
+
+            <footer>
+                <div id="piedPage">
+                    <ul>
+                        <li><a href="#"> Aide ? </a></li>
+                        <li><a href="#"> Contactez-nous </a></li>
+                        <li><a href="#"> Fonctionnement </a></li>
+                        <li><a href="#"> A propos </a></li>
+                    </ul>
+                </div>
+            </footer>
+        </div>
+    </div>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+
+    <script>
+        $(document).ready(function() {
+            // initialisation des variables
+            var $nom = $('#Pnom'),
+                $prenom = $('#Pnom'),
+                $mail = $('#Email'),
+                $pswd = $('#password'),
+                $Cpswd = $('#Cpassword'),
+                $send = $('#submit'),
+                $champ = $('.champ'),
+                $Pnom = $('#Pnom');
+
+            $('button').css({
+                borderRadius: '15px',
+            })
+
+            // Verification de la longueur des champs au moins 2 caracteres
+
+            $champ.keyup(function() {
+                if ($(this).val().length < 2 || $(this).val().length > 15) {
+                    $(this).css('borderColor', 'red')
+                } else {
+                    $(this).css('border', 'rgba(22, 144, 192, 0.849) solid 2px')
+                }
+            })
+
+            //verification nom et prenom
+            function VPnom(nom, prenom) {
+                if ((nom.val().length < 2 || nom.val().length > 15) || (prenom.val().length < 2 || prenom.val().length > 15)) {
+                    alert(" Le nom et le prenom doivent contenir au moins 2 et au plus 15 caracteres ! ");
+                } else {
+                    $('nom, prenom').css({
+                        color: 'black',
+                        borderColor: 'rgba(22, 144, 192, 0.849) solid 2px'
+                    });
+                }
+            }
+
+            $pswd.keyup(function() {
+                if ($(this).val().length < 6) {
+                    $(this).css('borderColor', 'red')
+                } else {
+                    $(this).css('borderColor', 'rgba(22, 144, 192, 0.849)')
+                }
+            })
+
+            $Cpswd.keyup(function() {
+                    if ($(this).val() != $pswd.val() || $(this).val().length < 6) {
+                        $(this).css('borderColor', 'red')
+
+                    } else {
+                        $(this).css('borderColor', 'rgba(22, 144, 192, 0.849)')
+                    }
+                })
+                // Verification Email
+
+            function isEmail(email) {
+                var regex = /^([a-zA-Z0-9_.+-])+\@(([a-zA-Z0-9-])+\.)+([a-zA-Z0-9]{2,4})+$/;
+                if (!(regex.test(email))) {
+                    alert(" Email incorrect ! ");
+                }
+            }
+
+            // Verification avant l'envoi du formulaire
+
+            function verifForm(champ) {
+                if (champ.val() == "") {
+                    alert(" Veillez remplir tout les champs svp !");
+                    champ.css({
+                        color: 'red',
+                        borderColor: 'red'
+                    });
+                }
+            }
+
+            $send.click(function(e) {
+                e.preventDefault();
+
+                verifForm($nom);
+                verifForm($prenom);
+                //VPnom($nom, $prenom);
+                verifForm($mail);
+                isEmail($mail);
+                verifForm($pswd);
+                verifForm($Cpswd);
+
+            })
+
+
+
+        });
+    </script>
+</body>
+
+</html>

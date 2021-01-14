@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8" />
+    <title> Connection au Jquery </title>
+</head>
+
+<body>
+    <form action="#" method="POST" name="form">
+        <label for="nom"> Nom :   </label> <input type="text" name="nom" id="nom"><br><br>
+        <label for="prenom"> Prenom : </label> <input type="text" name="prenom" id="prenom"><br><br>
+        <label for="age"> Age :   </label> <input type="number" name="age" id="age"><br><br>
+        <button type="submit" name="Send" id="send"> Envoyer </button>
+    </form>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script>
+        $('button').on('click', function() {
+            alert(" Voulez vous envoyer le formulaire ? ");
+        })
+
+        $('input').on({
+            click: function() {
+                alert(" Vous avez cliqué ");
+            },
+            mouseup: function() {
+                alert(" vous avez relachezv! ");
+            }
+        });
+
+        //annulation d'evenement
+
+        $('input').off('click');
+
+        // espace des nom
+        /*
+                $('button').on('click.nom', function() {
+                    alert(" Vous avez cliqué sur le champ 'nom' ! ");
+                });
+
+                $('button').on('click.prenom', function() {
+                    alert(" Vous avez cliqué sur le champ 'prenom' ! ");
+                });
+
+                //$('button').trigger('click.prenom');
+    </script>
+</body>
+
+</html>

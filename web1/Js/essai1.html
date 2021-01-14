@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <title> essai </title>
+</head>
+
+<body>
+    <form method="POST" action="#">
+        <label for="nom"> Nom :</label> <input type="text" id="nom" name="nom">
+        <label for="adresse"> E-mail : </label> <input type="email" id="adresse" name="adresse">
+        <input type="submit" value="send">
+    </form>
+    <script>
+        var Nom = document.getElementById('nom');
+        var Adresse = document.getElementById('adresse');
+
+        if ((/^[a-zA-Z0-9@\.-_]/.test(Nom)))
+            alert('ecriture correct ')
+        else
+            alert('Le nom ne doit pas debuté par un chiffre svp !');
+
+        if ((/^[a-z0-9-_.]+@[a-z0-9-_.]\.[a-z]{2,6}/.test(Adresse)))
+            alert('ecriture correcte ')
+        else
+            alert('Adresse invalide !');
+    </script>
+</body>
+
+</html>

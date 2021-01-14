@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <title> Html avec Jquery </title>
+</head>
+
+<body>
+    <h2> Introduction </h2>
+    <p id="mots">
+        <br> Bonjour <strong> Prince </strong> ca va ?
+    </p>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script>
+        var msg = $('p').text();
+        $('p').prepend(' Hey ! ');
+        $('p').prepend($('h2'));
+
+        $('p').before('<p> Bonsoir <strong> Cecile </strong> ! ');
+        $('p').after('<p> Bonnne nuit <strong> chefs </strong> ! ');
+        $('p').remove('#mots');
+        var $clone = $('#mots').clone(true).appendTo('h2');
+
+        $('<class/>', {
+            id = "main",
+            css: {
+                color: 'blue',
+                backgroundColor: 'yellow'
+            }
+        }).appendTo('body');
+
+        alert(msg);
+    </script>
+</body>
+
+</html>
